@@ -22,7 +22,11 @@ describe("stack", function() {
   });
 
   it('should add pushed items to the top of the stack', function() {
-    // Fill out the body of the test here
+    //stack is created above by 'magical' makeStack() - we assume its an object
+    //stack is empty
+    stack.push(2); //add to the top of the stack
+    stack.push(4); //add to the top of the stack
+    expect(stack.pop()).to.equal(4);
   });
 
   it('should remove popped items from the top of the stack', function() {
