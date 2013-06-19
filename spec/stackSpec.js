@@ -48,9 +48,9 @@ describe("stack", function() {
     expect(stack.pop()).to.equal(1);
   });
 
-  // it('should not error when popping from an empty stack', function() {
-  //   // Fill out the body of the test here
-  // });
+  it('should not error when popping from an empty stack', function() {
+    expect(stack.pop()).to.equal(undefined);
+  });
 
   // Hey! Add more tests here if you can think of ways to test your stack more thoroughly
 });
