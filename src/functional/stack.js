@@ -15,15 +15,13 @@ var makeStack = function(){
   stack.pop = function(){
     var temp = storage[size-1];
     delete storage[size-1];
-    size -= 1;
+    if(size>0) { size -= 1; }
     return temp;
   };
 
   stack.size = function(){
     return size;
   };
-
-
 
   return stack;
 };
