@@ -22,24 +22,26 @@ describe("stack", function() {
   });
 
   it('should add pushed items to the top of the stack', function() {
-    //stack is created above by 'magical' makeStack() - we assume its an object
-    //stack is empty
-    stack.push(2); //add to the top of the stack
-    stack.push(4); //add to the top of the stack
-    expect(stack.pop()).to.equal(4);
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+    expect(stack.pop()).to.equal(3);
   });
 
   it('should remove popped items from the top of the stack', function() {
-    // Fill out the body of the test here
+    stack.push("a");
+    stack.push("b");
+    stack.push(12);
+    expect(stack.pop()).to.equal(12);
   });
 
-  it('should push and pop multiple items in the right order (LIFO)', function() {
-    // Fill out the body of the test here
-  });
+  // it('should push and pop multiple items in the right order (LIFO)', function() {
+  //   // Fill out the body of the test here
+  // });
 
-  it('should not error when popping from an empty stack', function() {
-    // Fill out the body of the test here
-  });
+  // it('should not error when popping from an empty stack', function() {
+  //   // Fill out the body of the test here
+  // });
 
   // Hey! Add more tests here if you can think of ways to test your stack more thoroughly
 });
