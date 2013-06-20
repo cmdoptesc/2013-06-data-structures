@@ -8,8 +8,10 @@ var makeStack = function(){
   var stack = {};
 
   stack.push = function(value){
-    storage[size] = value;
-    size += 1;
+    if (typeof value !== 'undefined') {
+      storage[size] = value;
+      size += 1;
+    }
   };
 
   stack.pop = function(){
