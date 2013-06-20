@@ -59,5 +59,40 @@ describe("queue", function() {
     expect(queue.size()).to.equal(0);
   });
 
-  // Hey! Add tests here that thoroughly test the functionality of your queue
+
+  it('size should not increase if enqueue is called with no arguments', function() {
+    queue.enqueue();
+    expect(queue.size()).to.equal(0);
+  });
+
+  it('size should increase by 1 when enqueue is called with valid arguments', function() {
+    queue.enqueue();
+    expect(queue.size()).to.equal(0);
+    queue.enqueue(1);
+    expect(queue.size()).to.equal(1);
+    queue.enqueue(19);
+    expect(queue.size()).to.equal(2);
+  });
+
+  it('should only accept one argument for enqueue', function() {
+    expect(queue['enqueue'].length).to.equal(1);
+  });
+
+
+  it('size should not be less than zero when dequeue()-ing from an empty queue', function() {
+    queue.dequeue();
+    expect(queue.size()).to.equal(0);
+  });
+
+  it('size should decrease by one for each valid call to dequeue()', function() {
+    queue.enqueue(1);
+    queue.enqueue(2);
+    queue.enqueue(3);
+    // debugger;
+    expect(queue.size()).to.equal(3);
+    queue.dequeue();
+    expect(queue.size()).to.equal(2);
+    queue.dequeue();
+    expect(queue.size()).to.equal(1);
+  });
 });
