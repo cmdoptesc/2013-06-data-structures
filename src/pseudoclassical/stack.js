@@ -26,5 +26,4 @@ Stack.stackMethods = {
   size: function(){
     return this.bigMoneySize;
   }
-
 };
