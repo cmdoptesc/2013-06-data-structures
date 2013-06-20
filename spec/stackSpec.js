@@ -30,6 +30,24 @@ describe("stack", function() {
     expect(stack.pop()).to.equal(1);
   });
 
+  it('size should not increase if push is called with no arguments', function() {
+    stack.push();
+    expect(stack.size()).to.equal(0);
+  });
+
+  it('size should increase by 1 when push is called with valid arguments', function() {
+    stack.push(1);
+    expect(stack.size()).to.equal(1);
+    stack.push(1);
+    expect(stack.size()).to.equal(2);
+    stack.push(1);
+    expect(stack.size()).to.equal(3);
+  });
+
+  it('should only accept one argument for push', function() {
+    expect(stack['push'].length).to.equal(1);
+  });
+
   it('should remove popped items from the top of the stack', function() {
     stack.push("a");
     stack.push("b");
@@ -37,20 +55,22 @@ describe("stack", function() {
     expect(stack.pop()).to.equal(12);
   });
 
-  it('should push and pop multiple items in the right order (LIFO)', function() {
-    stack.push(1);
-    stack.push(2);
-    stack.push(3);
-    expect(stack.pop()).to.equal(3);
-    stack.push(3);
-    expect(stack.pop()).to.equal(3);
-    expect(stack.pop()).to.equal(2);
-    expect(stack.pop()).to.equal(1);
-  });
+// size should dec by 1 with every pop
 
-  it('should not error when popping from an empty stack', function() {
-    expect(stack.pop()).to.equal(undefined);
-  });
+it('should push and pop multiple items in the right order (LIFO)', function() {
+  stack.push(1);
+  stack.push(2);
+  stack.push(3);
+  expect(stack.pop()).to.equal(3);
+  stack.push(3);
+  expect(stack.pop()).to.equal(3);
+  expect(stack.pop()).to.equal(2);
+  expect(stack.pop()).to.equal(1);
+});
+
+it('should not error when popping from an empty stack', function() {
+  expect(stack.pop()).to.equal(undefined);
+});
 
   // Hey! Add more tests here if you can think of ways to test your stack more thoroughly
 });
