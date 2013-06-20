@@ -68,9 +68,34 @@ it('should push and pop multiple items in the right order (LIFO)', function() {
   expect(stack.pop()).to.equal(1);
 });
 
+it('size should not be less than zero when popping from an empty stack', function() {
+  stack.pop();
+  expect(stack.size()).to.equal(0);
+});
+
+it('size should decrease by one for each valid call to pop()', function() {
+  stack.push(1);
+  stack.push(2);
+  stack.push(3);
+  expect(stack.size()).to.equal(3);
+  stack.pop();
+  expect(stack.size()).to.equal(2);
+  stack.pop();
+  expect(stack.size()).to.equal(1);
+  stack.pop();
+  expect(stack.size()).to.equal(0);
+  stack.pop();
+  expect(stack.size()).to.equal(0);
+  stack.pop();
+  expect(stack.size()).to.equal(0);
+});
+
+
 it('should not error when popping from an empty stack', function() {
   expect(stack.pop()).to.equal(undefined);
 });
+
+
 
   // Hey! Add more tests here if you can think of ways to test your stack more thoroughly
 });
