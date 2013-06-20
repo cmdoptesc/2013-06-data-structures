@@ -1,13 +1,11 @@
 var makeStack = function(){
   var stack = {
-    push: makeStack.stackMethods.push,
-    pop: makeStack.stackMethods.pop,
-    size: makeStack.stackMethods.size,
-    storage: {},
-    bigMoneySize: 0
+    storage:{},
+    bigMoneySize:0
   };
-
-  return stack;
+  // using _.extend rather than assigning the properties individually
+  // also, be mindful of the order of passing arguments
+  return _.extend(stack, makeStack.stackMethods);
 };
 
 makeStack.stackMethods = {

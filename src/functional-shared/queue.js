@@ -7,6 +7,8 @@ var makeQueue = function(){
     dequeue: makeQueue.queueMethods.dequeue,
     size: makeQueue.queueMethods.size
   };
+
+  // assigning the properties individually rather than using _.extend
   return queue;
 };
 
