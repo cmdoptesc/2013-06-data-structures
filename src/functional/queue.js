@@ -12,20 +12,19 @@ var makeQueue = function(){
   var back = 0;
 
   queue.enqueue = function(value){
-    storage[back] = value;
-    back += 1;
-    console.log("enqueue:front: " , front);
-    console.log("enqueue:back: " , back);
+    if(typeof value !== 'undefined') {
+      storage[back] = value;
+      back += 1;
+    }
   };
 
   queue.dequeue = function(){
-    var temp = storage[front];
-    delete storage[front];
-    /*delete storage[front]; // this is wrong and will iterate before the deletioun*/
-    if(front !== back) { front += 1; }
-    console.log("dequeue:front: " , front);
-    console.log("dequeue:back: " , back);
-    return temp;
+    if(front !== back) {
+      var temp = storage[front];
+      delete storage[front];
+      front += 1;
+      return temp;
+    }
   };
 
   queue.size = function(){
