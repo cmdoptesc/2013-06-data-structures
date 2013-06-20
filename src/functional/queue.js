@@ -1,6 +1,5 @@
 var makeQueue = function () {
   var storage = {};
-  var size;
   var front = 0;
   var back = 0;
 

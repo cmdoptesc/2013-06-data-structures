@@ -1,28 +1,26 @@
 var makeStack = function(){
-  // Use an object with numeric keys to store values
   var storage = {};
 
-  var size = 0; // Hint: set an initial value here
+  var size = 0;
 
-  // Implement the methods below
-  var stack = {};
+  var stack = {
+    push : function(value){
+      if (typeof value !== 'undefined') {
+        storage[size] = value;
+        size += 1;
+      }
+    },
 
-  stack.push = function(value){
-    if (typeof value !== 'undefined') {
-      storage[size] = value;
-      size += 1;
+    pop : function(){
+      var temp = storage[size-1];
+      delete storage[size-1];
+      if(size>0) { size -= 1; }
+      return temp;
+    },
+
+    size : function(){
+      return size;
     }
-  };
-
-  stack.pop = function(){
-    var temp = storage[size-1];
-    delete storage[size-1];
-    if(size>0) { size -= 1; }
-    return temp;
-  };
-
-  stack.size = function(){
-    return size;
   };
 
   return stack;
