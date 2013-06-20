@@ -1,29 +1,24 @@
 var Stack = function() {
-  var bigStackz = Object.create(Stack.stackMethods);
-
-  bigStackz.storage = {};
-  bigStackz.bigMoneySize = 0;
-
-  return bigStackz;
+  this._storage = {};
+  this._bigMoneySize = 0;
 };
 
-Stack.stackMethods = {
-
-  push: function(value){
+Stack.prototype = {
+  push : function(value){
     if (typeof value !== 'undefined') {
-      this.storage[this.bigMoneySize] = value;
-      this.bigMoneySize += 1;
+      this._storage[this._bigMoneySize] = value;
+      this._bigMoneySize += 1;
     }
   },
 
-  pop: function(){
-    var temp = this.storage[this.bigMoneySize-1];
-    delete this.storage[this.bigMoneySize-1];
-    if(this.bigMoneySize>0) { this.bigMoneySize -= 1; }
+  pop : function() {
+    var temp = this._storage[this._bigMoneySize-1];
+    delete this._storage[this._bigMoneySize-1];
+    if(this._bigMoneySize>0) { this._bigMoneySize -= 1; }
     return temp;
   },
 
-  size: function(){
-    return this.bigMoneySize;
+  size : function() {
+    return this._bigMoneySize;
   }
 };

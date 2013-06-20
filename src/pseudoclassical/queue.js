@@ -7,7 +7,6 @@ var Queue = function  () {
 };
 
 Queue.prototype = {
-
   enqueue: function(value) {
     if(typeof value !== 'undefined') {
       this.storage[this.back] = value;
