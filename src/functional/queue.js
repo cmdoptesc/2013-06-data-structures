@@ -31,9 +31,5 @@ var makeQueue = function(){
     return back-front;
   };
 
-  // queue.front = front;
-  // queue.back = back;
-  queue.storage = storage;
-
   return queue;
 };
